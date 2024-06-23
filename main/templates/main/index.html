@@ -1,0 +1,36 @@
+{% extends "main/base.html" %}
+{% block title %}
+{{ title }}
+{% endblock %}
+
+{% block content %}
+    <h1>Главная страница</h1>
+    {% if tasks %}
+        {% for el in tasks %}
+        <div class="alert alert-warning mt-2">
+            <h3>{{ el.title }}</h3>
+            <p>{{ el.task }}</p>
+            <h1 style="font-size: 12px;">Удалить задачу? "{{ task.title }}"</h1>
+            <a href="{% url 'delete_task' el.id %}">Удалить</a>
+        </div>
+        {% endfor %}
+    {% else %}
+        <p> У вас нет записей!</p>
+    {% endif %}
+{% endblock %}
+
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Подтверждение удаления задачи</title>
+</head>
+<body>
+
+</body>
+</html>
+
+
+
+
+
